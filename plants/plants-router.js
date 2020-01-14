@@ -4,6 +4,16 @@ const Plants = require("./plantsModel.js");
 
 const router = express.Router();
 
+router.get("/", (req, res) => {
+  Plants.find()
+    .then(plant => {
+      res.json(plant);
+    })
+    .catch(err => {
+      res.status(500).json({ message: "Failed to get plants list" });
+    });
+});
+
 router.get("/:id", (req, res) => {
   let id = req.params.id;
   Plants.findById(id)
