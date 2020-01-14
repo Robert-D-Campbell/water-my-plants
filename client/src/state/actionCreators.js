@@ -104,10 +104,12 @@ export const deletePlant = id => dispatch => {
     .catch(err => console.log(err));
 };
 
-export const getSingleUser = () => {
+export const getSingleUser = user => {
   return withAuth
     .axiosWithAuth()
-    .get("https://build-week-4.herokuapp.com/api/user/single_user");
+    .get(
+      `https://water-my-plants-backend.herokuapp.com/api/dashboard/${user.id}`
+    );
 };
 
 export const startEditUser = user => {
