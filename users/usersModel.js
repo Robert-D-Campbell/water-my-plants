@@ -18,13 +18,13 @@ function add(user) {
 
 function findBy(filter) {
   return db("users")
-    .select("id", "username", "phone", "password")
+    .select("id", "username", "phoneNumber", "password")
     .where(filter);
 }
 
 function findById(id) {
   return db("users")
-    .select("id", "username", "phone")
+    .select("id", "username", "phoneNumber")
     .where({ id })
     .first();
 }
